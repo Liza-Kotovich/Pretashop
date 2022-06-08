@@ -10,12 +10,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class InputFields extends BasePage {
     private final String label;
 
+    WebDriverWait wait = new WebDriverWait(DriverSingleton.getDriver(), 15);
+    private static final String INPUT_XPATH = "//input[@id='%s']";
+
     public InputFields(String label) {
         this.label = label;
     }
-
-    WebDriverWait wait = new WebDriverWait(DriverSingleton.getDriver(), 15);
-    private static final String INPUT_XPATH = "//input[@id='%s']";
 
     public void writeText(String text) {
         wait.until(ExpectedConditions.

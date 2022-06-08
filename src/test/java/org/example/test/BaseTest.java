@@ -1,11 +1,13 @@
 package org.example.test;
 
 import org.example.driver.DriverSingleton;
+import org.example.util.TestListener;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
+
+@Listeners(TestListener.class)
 
 public class BaseTest {
 
@@ -17,7 +19,7 @@ public class BaseTest {
     }
 
     @AfterClass
-    public void stopBrowser(){
+    public void stopBrowser() {
         DriverSingleton.closeDriver();
     }
 }

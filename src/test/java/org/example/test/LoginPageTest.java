@@ -1,7 +1,6 @@
 package org.example.test;
 
 import org.example.page.MyAccountPage;
-import org.example.service.AddressPageService;
 import org.example.service.LoginPageService;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;

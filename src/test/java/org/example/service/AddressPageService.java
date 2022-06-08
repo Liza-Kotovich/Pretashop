@@ -1,6 +1,5 @@
 package org.example.service;
 
-
 import org.example.driver.DriverSingleton;
 import org.example.model.Address;
 import org.example.page.AddressPage;
@@ -28,6 +27,10 @@ public class AddressPageService {
                 .clickSaveButton();
     }
 
+    public void clickOnLogoutButton() {
+        addressPage.clickOnLogoutButton();
+    }
+
     public String getTitleOfAddressPage() {
         return addressPage.getTextOfNameOfAddress();
     }
@@ -35,12 +38,13 @@ public class AddressPageService {
     Alert alert;
 
     public void deleteAddress() {
-        addressPage.clickDeleteAddressButton();
+        addressPage.openPage(ADDRESSES_PAGE_URL)
+                .clickDeleteAddressButton();
         alert = DriverSingleton.getDriver().switchTo().alert();
         alert.accept();
     }
 
-    public String getTextOfPageAfterDeleteAddress(){
+    public String getTextOfPageAfterDeleteAddress() {
         return addressPage.getText();
     }
 }

@@ -30,6 +30,7 @@ public class AddressPageTest extends BaseTest {
         addressPageService.deleteAddress();
         String actualMessageOfPageAfterDeleteAddress = addressPageService.getTextOfPageAfterDeleteAddress();
         String expectedMessageOfPageAfterDeleteAddress = EXPECTED_MESSAGE_AFTER_DELETE_ADDRESS;
+        addressPageService.clickOnLogoutButton();
         Assert.assertTrue(actualMessageOfPageAfterDeleteAddress.contains(expectedMessageOfPageAfterDeleteAddress), "The actual message of the page does not match expected!");
     }
 
