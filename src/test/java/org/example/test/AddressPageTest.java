@@ -5,12 +5,9 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static org.example.util.Constants.ADDRESS_TITLE;
-import static org.example.util.Constants.EXPECTED_MESSAGE_AFTER_DELETE_ADDRESS;
-
 public class AddressPageTest extends BaseTest {
 
-    AddressPageService addressPageService;
+    private AddressPageService addressPageService;
 
     @BeforeClass
     public void setUp() {
@@ -21,7 +18,7 @@ public class AddressPageTest extends BaseTest {
     public void createAddressTest() {
         addressPageService.createYourAddress();
         String actualTitleOfAddress = addressPageService.getTitleOfAddressPage();
-        String expectedTitleOfAddress = ADDRESS_TITLE;
+        String expectedTitleOfAddress = "КИЕВСКАЯ ОБЛАСТЬ";
         Assert.assertTrue(actualTitleOfAddress.contains(expectedTitleOfAddress), "The actual title of the address does not match expected!");
     }
 
@@ -29,7 +26,7 @@ public class AddressPageTest extends BaseTest {
     public void deleteAddressTest() {
         addressPageService.deleteAddress();
         String actualMessageOfPageAfterDeleteAddress = addressPageService.getTextOfPageAfterDeleteAddress();
-        String expectedMessageOfPageAfterDeleteAddress = EXPECTED_MESSAGE_AFTER_DELETE_ADDRESS;
+        String expectedMessageOfPageAfterDeleteAddress = "No addresses are available.";
         addressPageService.clickOnLogoutButton();
         Assert.assertTrue(actualMessageOfPageAfterDeleteAddress.contains(expectedMessageOfPageAfterDeleteAddress), "The actual message of the page does not match expected!");
     }

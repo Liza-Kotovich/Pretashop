@@ -1,39 +1,48 @@
 package org.example.service;
 
+import io.qameta.allure.Step;
 import org.example.page.CartPage;
 
 public class CartPageService {
 
-    CartPage cartPage = new CartPage();
+   private CartPage cartPage = new CartPage();
 
+   @Step("Deleting item from cart")
     public void deleteItemFromCart() {
         cartPage.clickOnDeleteItemButton();
     }
 
+    @Step("Getting count of items in the cart")
     public String getCountOfItemsInTheCart() {
         return cartPage.getCountOfItemsInTheCart();
     }
 
+    @Step("Clicking on logout button")
     public void clickOnLogoutButton() {
         cartPage.clickOnLogoutButton();
     }
 
+    @Step("Getting text of button")
     public String getTextOfLoginButton() {
         return cartPage.getTextOfLoginButton();
     }
 
+    @Step("Getting actual price of item in the cart")
     public String getActualPriceOfItemIhTheCart(){
         return cartPage.getPriceOfItem();
     }
 
+    @Step("Getting total price with tax")
     public String getTotalPriceWithTax(){
         return cartPage.getTotalPriceWithTax();
     }
 
+    @Step("Getting total order value")
     public String getTotalOrderValue(){
         return cartPage.getTotalOrderValue();
     }
 
+    @Step("Clicking on proceed to checkout button")
     public void clickOnProceedToCheckoutButton(){
         cartPage.clickOnProceedToCheckoutButton();
     }

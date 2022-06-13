@@ -5,11 +5,9 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static org.example.util.Constants.EXPECTED_DESCRIPTION_ABOUT_ITEM;
-
 public class AssortmentPageTest extends BaseTest {
 
-    AssortmentPageService assortmentPageService;
+    private AssortmentPageService assortmentPageService;
 
     @BeforeClass
     public void setUp() {
@@ -19,7 +17,7 @@ public class AssortmentPageTest extends BaseTest {
     @Test
     public void getDescriptionAboutItemTest(){
         String actualDescriptionAboutItem = assortmentPageService.getDescriptionAboutItem();
-        String expectedDescriptionAboutItem = EXPECTED_DESCRIPTION_ABOUT_ITEM;
+        String expectedDescriptionAboutItem = "Faded short sleeve t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!";
         Assert.assertTrue(actualDescriptionAboutItem.contains(expectedDescriptionAboutItem),"The actual description about item does not match expected!");
     }
 }

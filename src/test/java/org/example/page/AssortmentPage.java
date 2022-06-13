@@ -2,6 +2,7 @@ package org.example.page;
 
 import lombok.extern.log4j.Log4j2;
 import org.example.driver.DriverSingleton;
+import org.example.util.Waiter;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -11,8 +12,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 @Log4j2
 
 public class AssortmentPage extends BasePage {
-
-    WebDriverWait wait = new WebDriverWait(DriverSingleton.getDriver(), 15);
 
     @FindBy(xpath = "//div[@class='button-container']//a[@data-id-product='1']")
     private WebElement addToCartButton;
@@ -47,7 +46,7 @@ public class AssortmentPage extends BasePage {
 
     public AssortmentPage clickToContinueShoppingButton() {
         log.info("Clicking on the continue to shopping button");
-        wait.until(ExpectedConditions.visibilityOf(continueShoppingButton)).click();
+        Waiter.waitVisibilityOfElement(driver, continueShoppingButton);
         continueShoppingButton.click();
         return this;
     }

@@ -1,14 +1,12 @@
 package org.example.page;
 
 import lombok.extern.log4j.Log4j2;
-import org.example.driver.DriverSingleton;
 import org.example.elements.DropDown;
 import org.example.elements.InputFields;
 import org.example.model.Address;
+import org.example.util.Waiter;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 @Log4j2
 
@@ -28,8 +26,6 @@ public class AddressPage extends BasePage {
 
     @FindBy(xpath = "//a[@class='logout']")
     private WebElement logoutButton;
-
-    WebDriverWait wait = new WebDriverWait(DriverSingleton.getDriver(), 15);
 
     public AddressPage openPage(String url) {
         log.info("Open address page by URL");
@@ -98,7 +94,7 @@ public class AddressPage extends BasePage {
 
     public String getTextOfNameOfAddress() {
         log.info("Getting a text of name of address");
-        wait.until(ExpectedConditions.visibilityOf(nameOfAddress));
+        Waiter.waitVisibilityOfElement(driver, nameOfAddress);
         return nameOfAddress.getText();
     }
 

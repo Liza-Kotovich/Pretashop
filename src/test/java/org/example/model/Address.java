@@ -1,15 +1,21 @@
 package org.example.model;
 
+import lombok.Data;
+
+@Data
 public class Address {
-    private String firstName;
-    private String lastName;
-    private String address;
-    private String zip;
-    private String city;
-    private String country;
-    private String homePhone;
-    private String state;
-    private String addressTitle;
+    public static final String ADDRESS_PAGE_URL = "http://prestashop.qatestlab.com.ua/ru/address";
+    public static final String ADDRESSES_PAGE_URL = "http://prestashop.qatestlab.com.ua/ru/addresses";
+
+    private String firstName = "Masha";
+    private String lastName = "Swan";
+    private String address = "Kiev";
+    private String zip = "35555";
+    private String city = "Kiev";
+    private String country = "Украина";
+    private String homePhone = "111";
+    private String state = "Киевская область";
+    private String addressTitle = "КИЕВСКАЯ ОБЛАСТЬ";
 
     public Address(String firstName, String lastName, String address, String zip, String city, String country, String homePhone, String state, String addressTitle) {
         this.firstName = firstName;
@@ -23,75 +29,7 @@ public class Address {
         this.addressTitle = addressTitle;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public Address() {
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getZip() {
-        return zip;
-    }
-
-    public void setZip(String zip) {
-        this.zip = zip;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getHomePhone() {
-        return homePhone;
-    }
-
-    public void setHomePhone(String homePhone) {
-        this.homePhone = homePhone;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getAddressTitle() {
-        return addressTitle;
-    }
-
-    public void setAddressTitle(String addressTitle) {
-        this.addressTitle = addressTitle;
-    }
 }

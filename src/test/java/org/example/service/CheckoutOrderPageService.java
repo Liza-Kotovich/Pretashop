@@ -1,15 +1,16 @@
 package org.example.service;
 
+import io.qameta.allure.Step;
 import org.example.page.CheckoutOrderPage;
 
 public class CheckoutOrderPageService {
 
-    AssortmentPageService assortmentPageService = new AssortmentPageService();
-    AddressPageService addressPageService = new AddressPageService();
-    CartPageService cartPageService = new CartPageService();
-    CheckoutOrderPage checkoutOrderPage = new CheckoutOrderPage();
+    private AssortmentPageService assortmentPageService = new AssortmentPageService();
+    private AddressPageService addressPageService = new AddressPageService();
+    private CartPageService cartPageService = new CartPageService();
+    private CheckoutOrderPage checkoutOrderPage = new CheckoutOrderPage();
 
-
+    @Step("Making order")
     public void ordering() {
         addressPageService.createYourAddress();
         assortmentPageService.addingItemToCart();
@@ -21,10 +22,12 @@ public class CheckoutOrderPageService {
         checkoutOrderPage.clickOnOrderConfirmationButton();
     }
 
-    public String getTextOfOrderConfirmationMessage(){
+    @Step("Getting text of order4 confirmation message")
+    public String getTextOfOrderConfirmationMessage() {
         return checkoutOrderPage.getTextOfOrderConfirmationMessage();
     }
 
+    @Step("Deleting address")
     public void deleteAddress() {
         addressPageService.deleteAddress();
     }

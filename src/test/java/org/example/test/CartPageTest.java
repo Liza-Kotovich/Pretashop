@@ -2,16 +2,14 @@ package org.example.test;
 
 import org.example.service.AssortmentPageService;
 import org.example.service.CartPageService;
-import org.example.util.Retry;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static org.example.util.Constants.*;
 
 public class CartPageTest extends BaseTest {
-    AssortmentPageService assortmentPageService;
-    CartPageService cartPageService;
+    private AssortmentPageService assortmentPageService;
+    private CartPageService cartPageService;
 
     @BeforeClass
     public void setUp() {
@@ -24,7 +22,7 @@ public class CartPageTest extends BaseTest {
         assortmentPageService.addItemToCart();
         String actualNameOfItemItTheCart = assortmentPageService.getNameOfItemInTheCart();
         cartPageService.clickOnLogoutButton();
-        String expectedNameOfItemItTheCart = EXPECTED_NAME_OF_ITEM_IN_CART;
+        String expectedNameOfItemItTheCart = "Faded Short Sleeve T-shirts";
         Assert.assertTrue(actualNameOfItemItTheCart.contains(expectedNameOfItemItTheCart), "The actual name of item in the cart does not match expected!");
     }
 
@@ -33,7 +31,7 @@ public class CartPageTest extends BaseTest {
         assortmentPageService.addItemToCart();
         cartPageService.deleteItemFromCart();
         String actualCountOfItemsInTheCart = cartPageService.getCountOfItemsInTheCart();
-        String expectedCountOfItemsInTheCart = EXPECTED_COUNT_OF_ITEMS_IN_THE_CART;
+        String expectedCountOfItemsInTheCart = "1 product";
         Assert.assertEquals(actualCountOfItemsInTheCart, expectedCountOfItemsInTheCart, "The actual count of item in the cart does not match expected!");
     }
 
@@ -41,7 +39,7 @@ public class CartPageTest extends BaseTest {
     public void logoutTest() {
         cartPageService.clickOnLogoutButton();
         String actualTextOfButton = cartPageService.getTextOfLoginButton();
-        String expectedTextOfButton = EXPECTED_TEXT_OF_BUTTON;
+        String expectedTextOfButton = "Войти";
         Assert.assertEquals(actualTextOfButton, expectedTextOfButton, "You have been not logout!");
     }
 

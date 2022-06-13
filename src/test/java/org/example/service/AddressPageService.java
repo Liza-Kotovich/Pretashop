@@ -1,19 +1,24 @@
 package org.example.service;
 
+import io.qameta.allure.Step;
 import org.example.driver.DriverSingleton;
 import org.example.model.Address;
 import org.example.page.AddressPage;
 import org.openqa.selenium.Alert;
 
-import static org.example.util.Constants.*;
+import static org.example.model.Address.ADDRESSES_PAGE_URL;
+import static org.example.model.Address.ADDRESS_PAGE_URL;
 
 public class AddressPageService {
-    AddressPage addressPage = new AddressPage();
-    LoginPageService loginPageService = new LoginPageService();
+    private AddressPage addressPage = new AddressPage();
+    private LoginPageService loginPageService = new LoginPageService();
 
+    Alert alert;
+
+    @Step("Creating address")
     public void createYourAddress() {
         loginPageService.login();
-        Address address = new Address(FIRST_NAME, LAST_NAME, ADDRESS, ZIP, CITY, COUNTRY, HOME_PHONE, STATE, ADDRESS_TITLE);
+        Address address = new Address();
         addressPage.openPage(ADDRESS_PAGE_URL)
                 .firstNameInput(address)
                 .lastNameInput(address)
@@ -27,16 +32,17 @@ public class AddressPageService {
                 .clickSaveButton();
     }
 
+    @Step("Clicking on logout button")
     public void clickOnLogoutButton() {
         addressPage.clickOnLogoutButton();
     }
 
+    @Step("Getting title of address page")
     public String getTitleOfAddressPage() {
         return addressPage.getTextOfNameOfAddress();
     }
 
-    Alert alert;
-
+    @Step("Deleting address")
     public void deleteAddress() {
         addressPage.openPage(ADDRESSES_PAGE_URL)
                 .clickDeleteAddressButton();
@@ -44,6 +50,7 @@ public class AddressPageService {
         alert.accept();
     }
 
+    @Step("Getting text of the page after deleting address")
     public String getTextOfPageAfterDeleteAddress() {
         return addressPage.getText();
     }
