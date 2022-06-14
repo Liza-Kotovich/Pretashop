@@ -22,7 +22,7 @@ public class CheckoutOrderPage extends BasePage {
     @FindBy(xpath = "//i//ancestor::button[@type='submit']")
     private WebElement orderConfirmationButton;
 
-    @FindBy(xpath = "//p//strong[@class='dark']")
+    @FindBy(xpath = "//h1[@class='page-heading']")
     private WebElement orderConfirmationMessage;
 
     public void clickOnProceedToCheckoutButton() {
