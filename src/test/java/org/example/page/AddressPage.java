@@ -1,6 +1,7 @@
 package org.example.page;
 
 import lombok.extern.log4j.Log4j2;
+import org.example.driver.DriverSingleton;
 import org.example.elements.DropDown;
 import org.example.elements.InputFields;
 import org.example.model.Address;
@@ -14,6 +15,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 @Log4j2
 
 public class AddressPage extends BasePage {
+
+    WebDriverWait wait = new WebDriverWait(DriverSingleton.getDriver(), 15);
+
+
 
     @FindBy(xpath = "//button[@id='submitAddress']")
     private WebElement saveButton;
@@ -78,15 +83,30 @@ public class AddressPage extends BasePage {
         return this;
     }
 
-    public AddressPage chooseACountry(Address address) {
+//    public AddressPage chooseACountry(Address address) {
+//        log.info("Choosing a country");
+//        new DropDown("uniform-id_country").selectOption(address.getCountry());
+//        return this;
+//    }
+//
+//    public AddressPage chooseAState(Address address) {
+//        log.info("Choosing a state");
+//        new DropDown("uniform-id_state").selectOption(address.getState());
+//        return this;
+//    }
+
+    public AddressPage chooseACountry() {
         log.info("Choosing a country");
-        new DropDown("uniform-id_country").selectOption(address.getCountry());
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//select[@id='id_country']//parent::div"))).click();
+        driver.findElement(By.xpath("//select[@id='id_country']//option[@value='216']")).click();
         return this;
     }
 
-    public AddressPage chooseAState(Address address) {
+
+    public AddressPage chooseAState() {
         log.info("Choosing a state");
-        new DropDown("uniform-id_state").selectOption(address.getState());
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//select[@id='id_state']//parent::div"))).click();
+        driver.findElement(By.xpath("//select[@id='id_state']//option[@value='321']")).click();
         return this;
     }
 
@@ -108,8 +128,6 @@ public class AddressPage extends BasePage {
 
     public String getText() {
         log.info("Getting text from the button (for assert)");
-        WebDriverWait wait = new WebDriverWait(driver, 15);
-        wait.until(ExpectedConditions.visibilityOf(availableAddressesButton));
         return availableAddressesButton.getText();
     }
 

@@ -25,9 +25,9 @@ public class AddressPageService {
                 .addressInput(address)
                 .zipInput(address)
                 .cityInput(address)
-                .chooseACountry(address)
+                .chooseACountry()
                 .homePhoneInput(address)
-                .chooseAState(address)
+                .chooseAState()
                 .addressTitleInput(address)
                 .clickSaveButton();
     }
