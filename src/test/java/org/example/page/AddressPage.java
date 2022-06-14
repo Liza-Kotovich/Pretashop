@@ -2,7 +2,6 @@ package org.example.page;
 
 import lombok.extern.log4j.Log4j2;
 import org.example.driver.DriverSingleton;
-import org.example.elements.DropDown;
 import org.example.elements.InputFields;
 import org.example.model.Address;
 import org.example.util.Waiter;
@@ -17,8 +16,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class AddressPage extends BasePage {
 
     WebDriverWait wait = new WebDriverWait(DriverSingleton.getDriver(), 15);
-
-
 
     @FindBy(xpath = "//button[@id='submitAddress']")
     private WebElement saveButton;
@@ -82,18 +79,6 @@ public class AddressPage extends BasePage {
         new InputFields("alias").writeText(address.getAddressTitle());
         return this;
     }
-
-//    public AddressPage chooseACountry(Address address) {
-//        log.info("Choosing a country");
-//        new DropDown("uniform-id_country").selectOption(address.getCountry());
-//        return this;
-//    }
-//
-//    public AddressPage chooseAState(Address address) {
-//        log.info("Choosing a state");
-//        new DropDown("uniform-id_state").selectOption(address.getState());
-//        return this;
-//    }
 
     public AddressPage chooseACountry() {
         log.info("Choosing a country");

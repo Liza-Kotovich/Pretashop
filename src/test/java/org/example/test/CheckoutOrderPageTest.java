@@ -18,7 +18,7 @@ public class CheckoutOrderPageTest extends BaseTest {
     public void checkoutOrderTest() {
         checkoutOrderPadeService.ordering();
         String actualMessageOfCheckoutPage = checkoutOrderPadeService.getTextOfOrderConfirmationMessage();
-        String expectedMessageOfCheckoutPage = "Ваш заказ http://prestashop.qatestlab.com.ua/ выполнен.";
+        String expectedMessageOfCheckoutPage = "ORDER CONFIRMATION";
         checkoutOrderPadeService.deleteAddress();
         Assert.assertTrue(actualMessageOfCheckoutPage.contains(expectedMessageOfCheckoutPage), "The actual text of checkout page does not match expected!");
     }
