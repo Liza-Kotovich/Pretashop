@@ -15,7 +15,6 @@ public class LoginPageService {
     @Step("Login")
     public MyAccountPage login() {
         loginPage.openPage(LOGIN_PAGE_URL)
-//                .chooseALanguage()
                 .fillInEmail(EMAIL)
                 .fillInPassword(PASSWORD)
                 .clickSignInButton();
