@@ -22,11 +22,6 @@ public class CartPageService {
         cartPage.clickOnLogoutButton();
     }
 
-    @Step("Getting text of button")
-    public String getTextOfLoginButton() {
-        return cartPage.getTextOfLoginButton();
-    }
-
     @Step("Getting actual price of item in the cart")
     public String getActualPriceOfItemIhTheCart(){
         return cartPage.getPriceOfItem();
@@ -45,5 +40,16 @@ public class CartPageService {
     @Step("Clicking on proceed to checkout button")
     public void clickOnProceedToCheckoutButton(){
         cartPage.clickOnProceedToCheckoutButton();
+    }
+
+    @Step("Logout")
+    public void logout(){
+       cartPage.clickOnLogoutButton();
+       cartPage.clickOnLoginButton();
+    }
+
+    @Step("Getting text of the page after clicking on logout button")
+    public String gettingTextOfThePageAfterClickingOnLogoutButton(){
+      return cartPage.getTextOfThePageAfterClickingOnLogoutButton();
     }
 }

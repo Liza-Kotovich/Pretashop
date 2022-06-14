@@ -3,6 +3,7 @@ package org.example.page;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
 @Log4j2
 
 public class CartPage extends BasePage {
@@ -34,9 +35,8 @@ public class CartPage extends BasePage {
     @FindBy(xpath = "//a[@title='Proceed to checkout']")
     private WebElement proceedToCheckoutButton;
 
-    @FindBy(xpath = "//div[@class='header_user_info']//a[@class='account']")
-    private WebElement a;
-
+    @FindBy(xpath = "//h1[@class='page-heading']")
+    private WebElement textOfThePageAfterClickingOnLogoutButton;
 
     public String nameOfItemInTheCart() {
         log.info("Getting name of item in the cart");
@@ -78,8 +78,18 @@ public class CartPage extends BasePage {
         return totalOrderValue.getText();
     }
 
-    public void clickOnProceedToCheckoutButton(){
+    public void clickOnProceedToCheckoutButton() {
         log.info("Clicking on the proceed to checkout button");
         proceedToCheckoutButton.click();
+    }
+
+    public void clickOnLoginButton() {
+        log.info("Clicking on login button");
+        loginButton.click();
+    }
+
+    public String getTextOfThePageAfterClickingOnLogoutButton() {
+        log.info("Getting text of the page after clicking on logout button");
+        return textOfThePageAfterClickingOnLogoutButton.getText();
     }
 }

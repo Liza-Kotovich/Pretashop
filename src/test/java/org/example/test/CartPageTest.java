@@ -37,10 +37,10 @@ public class CartPageTest extends BaseTest {
 
     @Test
     public void logoutTest() {
-        cartPageService.clickOnLogoutButton();
-        String actualTextOfButton = cartPageService.getTextOfLoginButton();
-        String expectedTextOfButton = "Войти";
-        Assert.assertEquals(actualTextOfButton, expectedTextOfButton, "You have been not logout!");
+        cartPageService.logout();
+        String actualTextOfThePageAfterLogout = cartPageService.gettingTextOfThePageAfterClickingOnLogoutButton();
+        String expectedTextOfThePageAfterLogout = "AUTHENTICATION";
+        Assert.assertEquals(actualTextOfThePageAfterLogout, expectedTextOfThePageAfterLogout, "You have been not logout!");
     }
 
     @Test
