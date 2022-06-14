@@ -58,11 +58,6 @@ public class CartPage extends BasePage {
         logoutButton.click();
     }
 
-    public String getTextOfLoginButton() {
-        log.info("Getting text of button");
-        return loginButton.getText();
-    }
-
     public String getPriceOfItem() {
         log.info("Getting price of item");
         return unitPrice.getText();

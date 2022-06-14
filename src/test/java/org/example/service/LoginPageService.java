@@ -8,7 +8,7 @@ public class LoginPageService {
 
     public static final String LOGIN_PAGE_URL = "http://prestashop.qatestlab.com.ua/ru/authentication?back=my-account";
     public static final String EMAIL = "motherlodesimss@gmail.com";
-    public static final String PASSWORD = "8motherLode8";
+    public static final String PASSWORD = " ";
 
     private LoginPage loginPage = new LoginPage();
 
