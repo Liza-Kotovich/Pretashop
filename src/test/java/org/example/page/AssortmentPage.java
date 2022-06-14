@@ -19,10 +19,10 @@ public class AssortmentPage extends BasePage {
     @FindBy(xpath = "//div[@class='right-block']")
     private WebElement element;
 
-    @FindBy(xpath = "//span[@title='Продолжить покупки']")
+    @FindBy(xpath = "//span[@class='continue btn btn-default button exclusive-medium']")
     private WebElement continueShoppingButton;
 
-    @FindBy(xpath = "//a[@title='Посмотреть корзину']")
+    @FindBy(xpath = "//span[@class='ajax_cart_quantity unvisible']//ancestor::a")
     private WebElement cartButton;
 
     @FindBy(xpath = " //a[@title='Faded Short Sleeve T-shirts']//ancestor::div[@class='right-block']//span[@itemprop='price']")

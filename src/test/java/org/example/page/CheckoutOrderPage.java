@@ -16,13 +16,13 @@ public class CheckoutOrderPage extends BasePage {
     @FindBy(xpath = "//button[@name='processCarrier']")
     private WebElement proceedToCheckoutButtonAfterAgreementOfTermsOfServices;
 
-    @FindBy(xpath = "//a[@title='Оплата банковским переводом']")
+    @FindBy(xpath = "//a[@class='bankwire']")
     private WebElement bankTransferTypeOfPaymentButton;
 
-    @FindBy(xpath = "//span[contains(text(),'подтверждаю')]")
+    @FindBy(xpath = "//i//ancestor::button[@type='submit']")
     private WebElement orderConfirmationButton;
 
-    @FindBy(xpath = "//strong[contains(text(),'выполнен')]")
+    @FindBy(xpath = "//p//strong[@class='dark']")
     private WebElement orderConfirmationMessage;
 
     public void clickOnProceedToCheckoutButton() {

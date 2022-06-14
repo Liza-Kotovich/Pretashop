@@ -1,8 +1,14 @@
 package org.example.page;
 
 import lombok.extern.log4j.Log4j2;
+import org.example.driver.DriverSingleton;
+import org.example.elements.DropDown;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 @Log4j2
 
 public class LoginPage extends BasePage {
@@ -35,9 +41,18 @@ public class LoginPage extends BasePage {
         passwordField.sendKeys(password);
         return this;
     }
+//
+//    WebDriverWait wait = new WebDriverWait(DriverSingleton.getDriver(), 15);
+//
+//    public LoginPage chooseALanguage() {
+//        log.info("Choosing a language");
+//        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='languages-block']"))).click();
+//        driver.findElement(By.xpath("//span[contains(text(),'English')]")).click();
+//        return this;
+//    }
 
-    public void clickSignInButton() {
-        log.info("Clicking on the sign in button");
-        signInButton.click();
+        public void clickSignInButton () {
+            log.info("Clicking on the sign in button");
+            signInButton.click();
+        }
     }
-}

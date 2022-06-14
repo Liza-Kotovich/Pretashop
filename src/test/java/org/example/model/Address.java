@@ -15,7 +15,7 @@ public class Address {
     private String country = "Украина";
     private String homePhone = "111";
     private String state = "Киевская область";
-    private String addressTitle = "КИЕВСКАЯ ОБЛАСТЬ";
+    private String addressTitle = "Kiev";
 
     public Address(String firstName, String lastName, String address, String zip, String city, String country, String homePhone, String state, String addressTitle) {
         this.firstName = firstName;
