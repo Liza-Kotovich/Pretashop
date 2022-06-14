@@ -34,6 +34,10 @@ public class CartPage extends BasePage {
     @FindBy(xpath = "//a[@title='Proceed to checkout']")
     private WebElement proceedToCheckoutButton;
 
+    @FindBy(xpath = "//div[@class='header_user_info']//a[@class='account']")
+    private WebElement a;
+
+
     public String nameOfItemInTheCart() {
         log.info("Getting name of item in the cart");
         return itemInTheCart.getText();

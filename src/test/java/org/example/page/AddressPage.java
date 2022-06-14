@@ -5,8 +5,11 @@ import org.example.elements.DropDown;
 import org.example.elements.InputFields;
 import org.example.model.Address;
 import org.example.util.Waiter;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 @Log4j2
 
@@ -105,6 +108,8 @@ public class AddressPage extends BasePage {
 
     public String getText() {
         log.info("Getting text from the button (for assert)");
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+        wait.until(ExpectedConditions.visibilityOf(availableAddressesButton));
         return availableAddressesButton.getText();
     }
 

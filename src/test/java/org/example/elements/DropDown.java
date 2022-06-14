@@ -25,6 +25,7 @@ public class DropDown extends BasePage {
         driver.findElement(By.xpath(String.format(SELECT_OPTION_XPATH, option))).click();
     }
 
+
 //    public void selectLanguage(String language) {
 //        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(DROP_DOWN_XPATH, label)))).click();
 //        driver.findElement(By.xpath(String.format(SELECT_LANGUAGE_XPATH, language))).click();
