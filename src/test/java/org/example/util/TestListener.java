@@ -1,10 +1,8 @@
 package org.example.util;
-
-import io.qameta.allure.Attachment;
-import org.example.driver.DriverSingleton;
 import org.example.page.BasePage;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.NoSuchSessionException;
+import org.openqa.selenium.WebDriver;
+import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
@@ -37,9 +35,19 @@ public class TestListener extends BasePage implements ITestListener {
         return TimeUnit.MILLISECONDS.toSeconds(iTestResult.getEndMillis() - iTestResult.getStartMillis());
     }
 
-    @Attachment(value = "Screenshot", type = "image/png")
-    private byte[] takeScreenshots() {
-        return ((TakesScreenshot) DriverSingleton.getDriver()).getScreenshotAs(OutputType.BYTES);
+
+    private byte[] takeScreenshot(ITestResult iTestResult) {
+        ITestContext context = iTestResult.getTestContext();
+        try {
+            WebDriver driver = (WebDriver) context.getAttribute("driver");
+            if (driver != null) {
+                return org.example.util.AllureUtils.takeScreenshot(driver);
+            } else {
+                return new byte[]{};
+            }
+        } catch (NoSuchSessionException | IllegalStateException ex) {
+            return new byte[]{};
+        }
     }
 
 }
